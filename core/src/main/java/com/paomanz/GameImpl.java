@@ -18,12 +18,18 @@ public class GameImpl implements Game {
    private boolean validNumberRange = true;
 
    //== CONSTRUCTORS :
-   // Initialize constructor to inject numberGenerator-Bean in this class.
+   /*// Initialize constructor to inject numberGenerator-Bean in this class.
    public GameImpl(NumberGenerator numberGenerator) {
+      this.numberGenerator = numberGenerator;
+   }*/
+
+   //== Public Methods :
+   // Setter-based Dependency-Injection:
+   // this will be set inside 'beans' using <property> as a property of game-bean.
+   public void setNumberGenerator(NumberGenerator numberGenerator) {
       this.numberGenerator = numberGenerator;
    }
 
-   //== Public Methods :
    @Override
    public void reset() {
       smallest = 0;

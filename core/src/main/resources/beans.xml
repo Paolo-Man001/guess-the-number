@@ -5,6 +5,7 @@
 
     <bean id="numberGenerator" class="com.paomanz.NumberGeneratorImpl"/>
     <bean id="game" class="com.paomanz.GameImpl">
-        <constructor-arg ref="numberGenerator"/>
+<!--        <constructor-arg ref="numberGenerator"/>-->
+        <property name="numberGenerator" ref="numberGenerator"/>
     </bean>
 </beans>
