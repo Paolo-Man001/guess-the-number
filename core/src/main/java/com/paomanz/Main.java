@@ -19,15 +19,16 @@ public class Main {
       ConfigurableApplicationContext context
               = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
-      // Get BEAN from Container-Context
+      // Get numberGenerator-bean from Container-Context
       NumberGenerator numberGenerator
               = context.getBean("numberGenerator", NumberGeneratorImpl.class);
 
-      int randomNumber = numberGenerator.next();
-      int getMaxNum = numberGenerator.getMaxNumber();
+      int randomNumber = numberGenerator.next();      // generate-random-number
+      log.info("random number is {}", randomNumber);  // log the random-number
 
-      log.info("random number is {}", randomNumber);
-      log.info("max number is {}", getMaxNum);
+      // GET game-bean from Context(Container) :
+      Game game = context.getBean(Game.class);
+      game.reset();
 
       // CLOSE the Context (Container)
       context.close();

@@ -4,4 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="numberGenerator" class="com.paomanz.NumberGeneratorImpl"/>
+    <bean id="game" class="com.paomanz.GameImpl">
+        <constructor-arg ref="numberGenerator"/>
+    </bean>
 </beans>
